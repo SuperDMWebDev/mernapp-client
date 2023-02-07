@@ -73,86 +73,88 @@ const Write = () => {
   }, [file, state]);
 
   return (
-    <div className="add">
-      <div className="content">
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <div className="editorContainer">
-          <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
-        </div>
-      </div>
-      <div className="menu">
-        <div className="item">
-          <h1>Publish</h1>
-          <span>
-            <b>Status: </b> Draft
-          </span>
-          <span>
-            <b>Visibility: </b> Public
-          </span>
+    <div className="container">
+      <div className="add">
+        <div className="content">
           <input
-            style={{ display: 'none' }}
-            type="file"
-            id="file"
-            name=""
-            onChange={(e) => setFile(e.target.files[0])}
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-          <label className={`${file == null ? 'file' : 'file noClick'}`} htmlFor="file">
-            {file == null ? 'Upload Image' : file.name}
-          </label>
-          <div className="buttons">
-            <button onClick={handleClick}>Publish</button>
+          <div className="editorContainer">
+            <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
           </div>
         </div>
-        <div className="item">
-          <h1>Category</h1>
-          <div className="cat">
+        <div className="menu">
+          <div className="item">
+            <h1>Publish</h1>
+            <span>
+              <b>Status: </b> Draft
+            </span>
+            <span>
+              <b>Visibility: </b> Public
+            </span>
             <input
-              type="radio"
-              checked={cat === 'art'}
-              name="cat"
-              value="art"
-              id="art"
-              onChange={(e) => setCat(e.target.value)}
+              style={{ display: 'none' }}
+              type="file"
+              id="file"
+              name=""
+              onChange={(e) => setFile(e.target.files[0])}
             />
-            <label htmlFor="art">Art</label>
+            <label className={`${file == null ? 'file' : 'file noClick'}`} htmlFor="file">
+              {file == null ? 'Upload Image' : file.name}
+            </label>
+            <div className="buttons">
+              <button onClick={handleClick}>Publish</button>
+            </div>
           </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === 'science'}
-              name="cat"
-              value="science"
-              id="science"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="science">Science</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === 'technology'}
-              name="cat"
-              value="technology"
-              id="technology"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="technology">Technology</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              checked={cat === 'cinema'}
-              name="cat"
-              value="cinema"
-              id="cinema"
-              onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="cinema">Cinema</label>
+          <div className="item">
+            <h1>Category</h1>
+            <div className="cat">
+              <input
+                type="radio"
+                checked={cat === 'art'}
+                name="cat"
+                value="art"
+                id="art"
+                onChange={(e) => setCat(e.target.value)}
+              />
+              <label htmlFor="art">Art</label>
+            </div>
+            <div className="cat">
+              <input
+                type="radio"
+                checked={cat === 'science'}
+                name="cat"
+                value="science"
+                id="science"
+                onChange={(e) => setCat(e.target.value)}
+              />
+              <label htmlFor="science">Science</label>
+            </div>
+            <div className="cat">
+              <input
+                type="radio"
+                checked={cat === 'technology'}
+                name="cat"
+                value="technology"
+                id="technology"
+                onChange={(e) => setCat(e.target.value)}
+              />
+              <label htmlFor="technology">Technology</label>
+            </div>
+            <div className="cat">
+              <input
+                type="radio"
+                checked={cat === 'cinema'}
+                name="cat"
+                value="cinema"
+                id="cinema"
+                onChange={(e) => setCat(e.target.value)}
+              />
+              <label htmlFor="cinema">Cinema</label>
+            </div>
           </div>
         </div>
       </div>

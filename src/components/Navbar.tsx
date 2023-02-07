@@ -9,40 +9,59 @@ export const Navbar = () => {
     await logout();
     navigate('/login');
   };
+  function capitalizeAllWord(s: string) {
+    // lodash only capitalizes first word
+    return _.snakeCase(s)
+      .split(`_`)
+      .map((x) => _.capitalize(x))
+      .join(` `);
+  }
+  const titleList = [
+    {
+      title: 'art'
+    },
+    {
+      title: 'science'
+    },
+    {
+      title: 'technology'
+    },
+    {
+      title: 'cinema'
+    }
+  ];
   return (
-    <div className="navbar">
-      <div className="container">
-        <div className="logo">
-          <Link to="/">
-            <img src="/assets/icons/google-classroom.ico" alt="logo" />
-          </Link>
-        </div>
-        <div className="links">
-          <Link className="link" to="/?cat=art">
-            <h6>ART</h6>
-          </Link>
-          <Link className="link" to="/?cat=science">
-            <h6>SCIENCE</h6>
-          </Link>
-          <Link className="link" to="/?cat=technology">
-            <h6>TECHNOLOGY</h6>
-          </Link>
-          <Link className="link" to="/?cat=cinema">
-            <h6>CINEMA</h6>
-          </Link>
-          <span className="img-profile">
-            <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" />
-            <div className="absolute">
-              <div className="img-box">
-                <span>{_.capitalize(currentUser?.username)}</span>
-                <div onClick={() => logoutApp()}>Logout</div>
-              </div>
-            </div>
-          </span>
+    <div className="container">
+      <div className="navbar">
+        <div className="container">
+          <div className="logo">
+            <Link to="/">
+              <img src="/assets/icons/google-classroom.ico" alt="logo" />
+            </Link>
+          </div>
+          <div className="links">
+            {titleList.map((item, index) => {
+              return (
+                <Link className="link" to={`/?cat=${item.title}`}>
+                  {_.upperCase(item.title)}
+                </Link>
+              );
+            })}
 
-          <span className="write">
-            <Link to="/write">Write</Link>
-          </span>
+            <span className="img-profile">
+              <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" />
+              <div className="absolute">
+                <div className="img-box">
+                  <span>{_.capitalize(currentUser?.username)}</span>
+                  <div onClick={() => logoutApp()}>Logout</div>
+                </div>
+              </div>
+            </span>
+
+            <span className="write">
+              <Link to="/write">Write</Link>
+            </span>
+          </div>
         </div>
       </div>
     </div>

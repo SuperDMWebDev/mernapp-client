@@ -65,24 +65,26 @@ export default function Home() {
 
   return (
     <Styled>
-      <div className="home">
-        <div className="posts">
-          {posts.map((post) => (
-            <div className="post" key={post.id}>
-              <div className="img">
-                <img
-                  src={`${isValidUrl(post.img) ? `${post.img}` : `/upload/${post.img}`}`}
-                  alt=""
-                />
+      <div className="container">
+        <div className="home">
+          <div className="posts">
+            {posts.map((post) => (
+              <div className="post" key={post.id}>
+                <div className="img">
+                  <img
+                    src={`${isValidUrl(post.img) ? `${post.img}` : `/upload/${post.img}`}`}
+                    alt=""
+                  />
+                </div>
+                <div className="content">
+                  <Link className="link" to={`/post/${post.id}`}>
+                    <h1>{post.title}</h1>
+                  </Link>
+                  <div dangerouslySetInnerHTML={{ __html: post.desc }}></div>
+                </div>
               </div>
-              <div className="content">
-                <Link className="link" to={`/post/${post.id}`}>
-                  <h1>{post.title}</h1>
-                </Link>
-                <div dangerouslySetInnerHTML={{ __html: post.desc }}></div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </Styled>

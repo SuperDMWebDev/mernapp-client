@@ -30,29 +30,35 @@ const Register = () => {
   return (
     <Styled>
       <div className="auth">
-        <h1>Register</h1>
-        <form>
-          <input
-            required
-            type="text"
-            placeholder="username"
-            name="username"
-            onChange={handleChange}
-          />
-          <input required type="email" placeholder="email" name="email" onChange={handleChange} />
-          <input
-            required
-            type="password"
-            placeholder="password"
-            name="password"
-            onChange={handleChange}
-          />
-          <button onClick={handleSubmit}>Register</button>
-          {err && <p>{err}</p>}
-          <span>
-            Do you have an account? <Link to="/login">Login</Link>
-          </span>
-        </form>
+        <div className="wrap-login100">
+          <div className="login100-pic jt-tilt">
+            <img src="/assets/images/img-01.png" alt="image" />
+          </div>
+          <form className="login100-form validate-form">
+            <h2 className="login100-form-title">Sign up</h2>
+
+            <input
+              required
+              type="text"
+              placeholder="username"
+              name="username"
+              onChange={handleChange}
+            />
+            <input required type="email" placeholder="email" name="email" onChange={handleChange} />
+            <input
+              required
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={handleChange}
+            />
+            <button onClick={handleSubmit}>Register</button>
+            {err && <p>{err}</p>}
+            <span>
+              Do you have an account? <Link to="/login">Login</Link>
+            </span>
+          </form>
+        </div>
       </div>
     </Styled>
   );

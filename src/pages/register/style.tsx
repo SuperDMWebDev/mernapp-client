@@ -2,12 +2,16 @@ import styled from 'styled-components';
 import { lightGreen } from '../../constant/variable';
 const Styled = styled.div`
   .auth {
+    width: 100%;
+    min-height: 100vh;
+    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: ${lightGreen};
+    padding: 15px;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
   }
   .auth h1 {
     font-size: 20px;
